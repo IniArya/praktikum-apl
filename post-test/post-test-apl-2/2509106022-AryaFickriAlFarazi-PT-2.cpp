@@ -28,16 +28,14 @@ struct Pemesanan
     int noPesan, jumlahOrang;
     double totalHarga;
     string nimPemilik, tanggalPergi, status;
-    Pelanggan pelanggan; // nested struct
-    Paket paket;         // nested struct
+    Pelanggan pelanggan;
+    Paket paket;
 };
 
 struct User
 {
     string nama, nim, role;
 };
-
-// ===================== DATA GLOBAL =====================
 
 const int MAX_USER = 50, MAX_PESAN = 100, JML_PAKET = 5;
 
@@ -53,8 +51,6 @@ Paket pakets[JML_PAKET] = {
     {3, 3, 2000000, "Bontang", "Hotel 3*, Transport, Pulau Beras Basah, Makan 2x/hari"},
     {4, 5, 3000000, "Sangatta", "Hotel 3*, Transport, Taman Nasional Kutai, Makan 3x/hari"},
     {5, 6, 4500000, "Berau", "Hotel 4*, Transport, Kepulauan Derawan, Makan 3x/hari"}};
-
-// ===================== UTILITAS =====================
 
 void garis(int n = 80, char c = '=')
 {
@@ -90,8 +86,6 @@ bool bolehAkses(int idx)
     return aktif.role == "admin" || orders[idx].nimPemilik == aktif.nim;
 }
 
-// ===================== TABEL =====================
-
 void tabelHeader()
 {
     garis(105, '-');
@@ -124,8 +118,6 @@ void tampilTabel(const string &nimFilter)
     cout << "Total: " << n << " pemesanan\n";
 }
 
-// ===================== PILIH PAKET =====================
-
 Paket pilihPaket()
 {
     garis(90, '-');
@@ -148,8 +140,6 @@ Paket pilihPaket()
     }
     return pakets[p - 1];
 }
-
-// ===================== AUTH =====================
 
 void registrasi()
 {
@@ -215,8 +205,6 @@ bool login()
     }
     return false;
 }
-
-// ===================== CRUD =====================
 
 void tambah()
 {
@@ -469,8 +457,6 @@ void daftarUser()
     garis(50, '-');
     jeda();
 }
-
-// ===================== MENU =====================
 
 void menuUtama()
 {
